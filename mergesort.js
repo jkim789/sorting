@@ -9,25 +9,23 @@ function split(wholeArray) {
 
 function merge (arr1, arr2) {
   var sortedArray = [];
-  while (arr1.length && arr2.length) {
-    if (arr1[0] < arr2[0]) {
-      sortedArray.push(arr1.shift());
+  var index1 = 0;
+  var index2 = 0;
+  while (arr1.length > index1 || arr2.length > index2) {
+    if (arr1[index1] < arr2[index2] || !arr2[index2]) {
+      sortedArray.push(arr1[index1]);
+      index1++;
     } else {
-      sortedArray.push(arr2.shift());
+      sortedArray.push(arr2[index2]);
+      index2++;
     }
   }
-  return sortedArray.concat(arr1.length ?  arr1 : arr2);
+  return sortedArray;
 }
 
 
-function mergeSort(array){
-  //if length of array is 1, we start merging
-  //if longer than 1, then keep splitting
-  if(array.length === 1){
-    return array
-  }
-  
-  var splitArr = split(array)
-  return merge(mergeSort(splitArr[0]), mergeSort(splitArr[1]))
-
+function mergeSort(array) {
+  if (array.length > 2) return array;
+  var splitArr = split(array);
+  return merge(mergeSort(splitArr[0]), mergeSort(splitArr[1]));
 }
