@@ -25,7 +25,7 @@ function merge (arr1, arr2) {
 
 
 function mergeSort(array) {
-  if (array.length > 2) return array;
+  if (array.length < 2) return array;
   var splitArr = split(array);
   return merge(mergeSort(splitArr[0]), mergeSort(splitArr[1]));
 }
