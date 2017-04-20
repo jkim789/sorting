@@ -12,3 +12,10 @@ describe('Merge Sort', function(){
     expect(merge([1, 3], [2, 5])).toEqual([1, 2, 3, 5]);
   });
 });
+
+describe('Merge sort', function(){
+  it('should recursively sort an array using merge function', function(){
+    expect(mergeSort([5,4,63,2,43,80,20,30])).toEqual([2,4,5,20,30,43,63,80]);
+  })
+})
+

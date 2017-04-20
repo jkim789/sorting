@@ -18,3 +18,16 @@ function merge (arr1, arr2) {
   }
   return sortedArray.concat(arr1.length ?  arr1 : arr2);
 }
+
+
+function mergeSort(array){
+  //if length of array is 1, we start merging
+  //if longer than 1, then keep splitting
+  if(array.length === 1){
+    return array
+  }
+  
+  var splitArr = split(array)
+  return merge(mergeSort(splitArr[0]), mergeSort(splitArr[1]))
+
+}
